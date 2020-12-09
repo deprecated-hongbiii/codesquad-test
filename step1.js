@@ -11,6 +11,12 @@ function makeData(input) {
   return data;
 }
 
+// 입력받은 정수가 양수인지 검사
+function isPositive(int) {
+  if(int > 0) return true;
+  if(int < 0) return false;
+}
+
 function rotR(word, int, direction) {
 
 }
