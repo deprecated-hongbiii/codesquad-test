@@ -17,11 +17,17 @@ function isPositive(int) {
   if(int < 0) return false;
 }
 
+// 정수를 절댓값으로 변환
+function toAbsolute(int) {
+  return Math.abs(int);
+}
+
 function rotR(word, int, direction) {
 
 }
 
 makeData('apple 3 R');
+console.log(toAbsolute(-3));
 
 // const readline = require("readline");
 // const rl = readline.createInterface({
