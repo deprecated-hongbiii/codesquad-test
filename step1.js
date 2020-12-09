@@ -43,27 +43,44 @@ function modifyData(data) { // 객체 형태의 데이터를 받아옴
   return data;
 }
 
-function rotR() {
-  
+function rotR(word, rotNum) {
+  let wordArr = word.split('');
+  while (rotNum > 0) {
+    let temp = wordArr[wordArr.length - 1];
+    wordArr.pop();
+    wordArr.unshift(temp);
+    rotNum -= 1;
+  }
+  word = wordArr.join('');
+  return word;
 }
 
 function pushWord(input) {
   let data = makeData(input);
+  const word = data.word;
+  const rotNum = data.int % word.length;
+  const direction = data.direction;
   
-  if(data.int === 0) {
-    console.log(data.word);
+  if(rotNum === 0) {
+    console.log(word);
     return
   }
-  const rotNum = data.int;
-  const direction = data.direction;
 
+  if(direction === 'R' || direction === 'r') {
+    // rotR();
+  }
+
+  if(direction === 'L' || direction === 'l') {
+    // rotL();
+  }
   
 }
 
 
 
 // ----------------- TEST ---------------------
-pushWord('apple -5 r');
+pushWord('applee -10 r');
+rotR('apple', 1);
 // --------------------------------------------
 
 // const readline = require("readline");
