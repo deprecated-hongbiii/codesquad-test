@@ -43,6 +43,7 @@ function modifyData(data) { // 객체 형태의 데이터를 받아옴
   return data;
 }
 
+// 오른쪽으로 미는 함수
 function rotR(word, rotNum) {
   let wordArr = word.split('');
   while (rotNum > 0) {
@@ -55,6 +56,7 @@ function rotR(word, rotNum) {
   return word;
 }
 
+// 최종 실행 함수
 function pushWord(input) {
   let data = makeData(input);
   const word = data.word;
@@ -67,20 +69,19 @@ function pushWord(input) {
   }
 
   if(direction === 'R' || direction === 'r') {
-    // rotR();
+    console.log(rotR(word, rotNum));
+    return
   }
 
   if(direction === 'L' || direction === 'l') {
-    // rotL();
+    const rightRotNum = word.length - rotNum;
+    console.log(rotR(word, rightRotNum));
+    return
   }
-  
 }
-
-
 
 // ----------------- TEST ---------------------
 pushWord('applee -10 r');
-rotR('apple', 1);
 // --------------------------------------------
 
 // const readline = require("readline");
