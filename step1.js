@@ -13,8 +13,7 @@ function makeData(input) {
 
 // 입력받은 정수가 양수인지 검사
 function isPositive(int) {
-  if(int > 0) return true;
-  if(int < 0) return false;
+  return (int > 0 ? true : false);
 }
 
 // 정수를 절댓값으로 변환
@@ -27,7 +26,6 @@ function rotR(word, int, direction) {
 }
 
 makeData('apple 3 R');
-console.log(toAbsolute(-3));
 
 // const readline = require("readline");
 // const rl = readline.createInterface({
