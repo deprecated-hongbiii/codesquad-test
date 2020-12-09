@@ -21,6 +21,16 @@ function toAbsolute(int) {
   return Math.abs(int);
 }
 
+function changeDirection(direction) {
+  if(direction === 'R' || direction === 'r') {
+    return 'L';
+  }
+
+  if(direction === 'L' || direction === 'l') {
+    return 'R';
+  }
+}
+
 function rotR(word, int, direction) {
 
 }
