@@ -10,7 +10,7 @@ function makeData(input) {
   }
 
   if(!isPositive(data.int)) {
-    modifyData(data);
+    return modifyData(data);
   }
   
   return data;
@@ -33,9 +33,11 @@ function changeDirection(direction) {
 
 // 정수 값에 따라 데이터 수정하는 함수 - int가 음수일 경우 실행
 function modifyData(data) { // 객체 형태의 데이터를 받아옴
-  data.int = Math.abs(data.int);
-  data.direction = changeDirection(data.direction);
-  return data;
+  return {
+    word: data.word,
+    int: Math.abs(data.int),
+    direction: changeDirection(data.direction)
+  };
 }
 
 // 오른쪽으로 미는 함수
