@@ -18,13 +18,8 @@ function isPositive(int) {
 }
 
 function changeDirection(direction) {
-  if(direction === 'R' || direction === 'r') {
-    return 'L';
-  }
-
-  if(direction === 'L' || direction === 'l') {
-    return 'R';
-  }
+  if(direction === 'R' || direction === 'r') return 'L';
+  if(direction === 'L' || direction === 'l') return 'R';
 }
 
 // 정수 값에 따라 데이터 수정하는 함수 - int가 음수일 경우 실행
@@ -53,7 +48,7 @@ function rotR(word, rotNum) {
 
 // 최종 실행 함수
 function pushWord(input) {
-  let data = makeData(input);
+  const data = makeData(input);
   const word = data.word;
   const rotNum = data.int % word.length;
   const direction = data.direction;
