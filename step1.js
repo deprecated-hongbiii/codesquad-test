@@ -8,6 +8,11 @@ function makeData(input) {
     int: Number(dataArr[1]),
     direction: dataArr[2]
   }
+
+  if(!isPositive(data.int)) {
+    modifyData(data);
+  }
+  
   return data;
 }
 
@@ -38,14 +43,27 @@ function modifyData(data) { // 객체 형태의 데이터를 받아옴
   return data;
 }
 
-function rotR(word, int, direction) {
+function rotR() {
   
 }
 
+function pushWord(input) {
+  let data = makeData(input);
+  
+  if(data.int === 0) {
+    console.log(data.word);
+    return
+  }
+  const rotNum = data.int;
+  const direction = data.direction;
+
+  
+}
+
+
+
 // ----------------- TEST ---------------------
-let data = makeData('apple -3 l');
-data = modifyData(data);
-console.log(data);
+pushWord('apple -5 r');
 // --------------------------------------------
 
 // const readline = require("readline");
