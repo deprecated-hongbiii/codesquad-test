@@ -1,6 +1,6 @@
-// --------------- 1단계: 단어 밀어내기 ---------------
+// ---------------------● 1단계: 단어 밀어내기 ●---------------------
 
-// 1. input을 객체 형태의 데이터로 변환
+// input을 객체 형태의 데이터로 변환
 function makeData(input) {
   const dataArr = input.split(' ');
   const data = {
@@ -64,37 +64,33 @@ function pushWord(input) {
   const direction = data.direction;
   
   if(rotNum === 0) {
-    console.log(word);
+    console.log('결과: ', word);
     return
   }
 
   if(direction === 'R' || direction === 'r') {
-    console.log(rotR(word, rotNum));
+    console.log('결과: ', rotR(word, rotNum));
     return
   }
 
   if(direction === 'L' || direction === 'l') {
     const rightRotNum = word.length - rotNum;
-    console.log(rotR(word, rightRotNum));
+    console.log('결과: ', rotR(word, rightRotNum));
     return
   }
 }
 
-// ----------------- TEST ---------------------
-pushWord('applee -10 r');
-// --------------------------------------------
+// ---------------------● node.js 입력 받기 ●---------------------
 
-// const readline = require("readline");
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout
-// });
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-// rl.on("line", function(line) {
-//   console.log("hello !", line);
-//   console.log(line.length);
-//   rl.close();
-// }).on("close", function() {
-//   process.exit();
-// });
-
+rl.on("line", function(line) {
+  pushWord(line);
+  rl.close();
+}).on("close", function() {
+  process.exit();
+});
