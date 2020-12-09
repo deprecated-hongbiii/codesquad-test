@@ -21,11 +21,6 @@ function isPositive(int) {
   return (int > 0 ? true : false);
 }
 
-// 정수를 절댓값으로 변환
-function toAbsolute(int) {
-  return Math.abs(int);
-}
-
 function changeDirection(direction) {
   if(direction === 'R' || direction === 'r') {
     return 'L';
@@ -38,7 +33,7 @@ function changeDirection(direction) {
 
 // 정수 값에 따라 데이터 수정하는 함수 - int가 음수일 경우 실행
 function modifyData(data) { // 객체 형태의 데이터를 받아옴
-  data.int = toAbsolute(data.int);
+  data.int = Math.abs(data.int);
   data.direction = changeDirection(data.direction);
   return data;
 }
