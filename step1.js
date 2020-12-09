@@ -46,8 +46,10 @@ function modifyData(data) { // 객체 형태의 데이터를 받아옴
 // 오른쪽으로 미는 함수
 function rotR(word, rotNum) {
   let wordArr = word.split('');
+  const length = word.length;
+
   while (rotNum > 0) {
-    let temp = wordArr[wordArr.length - 1];
+    let temp = wordArr[length - 1];
     wordArr.pop();
     wordArr.unshift(temp);
     rotNum -= 1;
