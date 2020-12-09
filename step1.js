@@ -8,12 +8,8 @@ function makeData(input) {
     int: Number(dataArr[1]),
     direction: dataArr[2]
   }
-
-  if(!isPositive(data.int)) {
-    return modifyData(data);
-  }
   
-  return data;
+  return isPositive(data.int) ? data : modifyData(data); 
 }
 
 // 입력받은 정수가 양수인지 검사
