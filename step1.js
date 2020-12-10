@@ -17,6 +17,7 @@ function isPositive(int) {
   return (int > 0 ? true : false);
 }
 
+// 방향 바꾸는 함수 -int가 음수일 경우 실행
 function changeDirection(direction) {
   if(direction === 'R' || direction === 'r') return 'L';
   if(direction === 'L' || direction === 'l') return 'R';
@@ -31,15 +32,13 @@ function modifyData(data) { // 객체 형태의 데이터를 받아옴
   };
 }
 
-// 오른쪽으로 미는 함수
-function rotR(word, rotNum) {
+// 왼쪽으로 미는 함수
+function rotL(word, rotNum) {
   let wordArr = word.split('');
-  const length = word.length;
-
   while (rotNum > 0) {
-    let temp = wordArr[length - 1];
-    wordArr.pop();
-    wordArr.unshift(temp);
+    let temp = wordArr[0];
+    wordArr.shift();
+    wordArr.push(temp);
     rotNum -= 1;
   }
   word = wordArr.join('');
@@ -59,13 +58,13 @@ function pushWord(input) {
   }
 
   if(direction === 'R' || direction === 'r') {
-    console.log('결과: ', rotR(word, rotNum));
+    const leftRotNum = word.length - rotNum;
+    console.log('결과: ', rotL(word, leftRotNum));
     return
   }
 
   if(direction === 'L' || direction === 'l') {
-    const rightRotNum = word.length - rotNum;
-    console.log('결과: ', rotR(word, rightRotNum));
+    console.log('결과: ', rotL(word, rotNum));
     return
   }
 }
