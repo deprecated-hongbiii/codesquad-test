@@ -51,7 +51,7 @@ function rotVerticalTwice(planeCube, colIndex) {
   return rotVertical(temp, colIndex);
 }
 
-// --------------------- input 데이터 관련 함수들 ---------------------
+// ----------------- input 데이터 및 출력 관련 함수들 -----------------
 
 function splitInput(input) {
   let inputArr = input.split('').map((char) => char.toUpperCase());
@@ -62,6 +62,13 @@ function splitInput(input) {
   return inputArr;
 }
 
+function print2Darray(array2D) {
+  array2D.forEach(array => {
+    console.log(array.join(' '));
+  })
+  console.log(); // 한 줄 띄우기
+}
+
 // ------------------------- 최종 실행 함수 -------------------------
 
 function init(line) {
@@ -70,7 +77,8 @@ function init(line) {
   
   inputArr.forEach((input) => {
     dupPlaneCube = command[input](dupPlaneCube)
-    console.log(dupPlaneCube);
+    console.log(input);
+    print2Darray(dupPlaneCube);
   })
 }
 
@@ -83,11 +91,11 @@ const rl = readline.createInterface({
   prompt: 'CUBE> '
 });
 
-console.log('초기 상태');
-console.log(planeCube);
+console.log('초기 상태:');
+print2Darray(planeCube);
+
 rl.prompt();
 rl.on("line", function(line) {
-  // 이 부분에 실행 함수 입력
   init(line);
   rl.close();
 }).on("close", function() {
