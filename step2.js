@@ -96,8 +96,12 @@ print2Darray(planeCube);
 
 rl.prompt();
 rl.on("line", function(line) {
+  if(line === 'Q' || line === 'q') {
+    console.log('Bye~');
+    rl.close();
+  }
   init(line);
-  rl.close();
+  rl.prompt();
 }).on("close", function() {
   process.exit();
 });
