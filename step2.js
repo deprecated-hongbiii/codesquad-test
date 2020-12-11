@@ -73,10 +73,6 @@ function init(line) {
     console.log(dupPlaneCube);
   })
 }
-// ' <<<<<<<<<< 이놈 처리하는 함수 만들기
-// ---------------------● test ●---------------------
-
-// console.log(rotVerticalTwice(planeCube, 2));
 
 // ---------------------● node.js 입력 받기 ●---------------------
 
