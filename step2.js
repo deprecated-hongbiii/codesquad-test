@@ -17,6 +17,8 @@ const command = {
   'D\'': (e) => rotHorizontal(e, 2),
 }
 
+// --------------------- 회전 (밀어내기) 관련 함수들 ---------------------
+
 function rotL(array) {
   const dupArr = [...array];
   const firstElem = dupArr.shift();
@@ -49,8 +51,21 @@ function rotVerticalTwice(planeCube, colIndex) {
   return rotVertical(temp, colIndex);
 }
 
+// --------------------- input 데이터 관련 함수들 ---------------------
+
+function splitInput(input) {
+  let inputArr = input.split('').map((char) => char.toUpperCase());
+  for(let i = 0; i < inputArr.length; i++) {
+    if(inputArr[i] === "'") inputArr[i - 1] += "'";
+  }
+  inputArr = inputArr.filter((char) => char !== "'");
+  return inputArr;
+}
+
+// ------------------------- 최종 실행 함수 -------------------------
+
 function init(line) {
-  let inputArr = line.split('');
+  let inputArr = splitInput(line);
   let dupPlaneCube = planeCube.map(e => [...e]); // 복사를 여기서 하자.
   
   inputArr.forEach((input) => {
