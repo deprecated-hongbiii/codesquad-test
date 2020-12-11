@@ -32,12 +32,18 @@ function rotHorizontal(planeCube, rowIndex) {
 }
 
 function rotVertical(planeCube, colIndex) {
-  
+  let dupPlaneCube = [...planeCube.map(e => [...e])];
+  let col = [dupPlaneCube[0][colIndex], dupPlaneCube[1][colIndex], dupPlaneCube[2][colIndex]];
+  col = rotL(col);
+  dupPlaneCube[0][colIndex] = col[0];
+  dupPlaneCube[1][colIndex] = col[1];
+  dupPlaneCube[2][colIndex] = col[2];
+  return dupPlaneCube;
 }
 
 // ---------------------● test ●---------------------
 
-console.log(rotHorizontal(planeCube, 2));
+console.log(rotVertical(planeCube, 0));
 
 // ---------------------● node.js 입력 받기 ●---------------------
 
