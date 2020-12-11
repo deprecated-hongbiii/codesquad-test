@@ -46,9 +46,14 @@ function rotVertical(planeCube, colIndex) {
   return dupPlaneCube;
 }
 
+function rotVerticalTwice(planeCube, colIndex) {
+  const temp = rotVertical(planeCube, colIndex);
+  return rotVertical(temp, colIndex);
+}
+
 // ---------------------● test ●---------------------
 
-console.log(rotHorizontalTwice(planeCube, 0));
+console.log(rotVerticalTwice(planeCube, 2));
 
 // ---------------------● node.js 입력 받기 ●---------------------
 
