@@ -51,8 +51,8 @@ function rotVerticalTwice(planeCube, colIndex) {
 
 function init(line) {
   let inputArr = line.split('');
-  let dupPlaneCube = [...planeCube.map(e => e)]; // 복사를 여기서 하자.
-
+  let dupPlaneCube = planeCube.map(e => [...e]); // 복사를 여기서 하자.
+  
   inputArr.forEach((input) => {
     dupPlaneCube = command[input](dupPlaneCube)
     console.log(dupPlaneCube);
