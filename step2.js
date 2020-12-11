@@ -6,22 +6,22 @@ const planeCube = [
   ['G', 'B', 'B']
 ];
 
+const command = {
+  'U': (e) => rotHorizontal(e, 0),
+  'U\'': (e) => rotHorizontalTwice(e, 0),
+  'R': (e) => rotVertical(e, 2),
+  'R\'': (e) => rotVerticalTwice(e, 2),
+  'L': (e) => rotVerticalTwice(e, 0),
+  'L\'': (e) => rotVertical(e, 0),
+  'D': (e) => rotHorizontalTwice(e, 2),
+  'D\'': (e) => rotHorizontal(e, 2),
+}
+
 function rotL(array) {
   const dupArr = [...array];
   const firstElem = dupArr.shift();
   return [...dupArr, firstElem];
 }
-
-// const command = {
-//   'U': ,
-//   'U\'': ,
-//   'R': ,
-//   'R\'': ,
-//   'L': ,
-//   'L\'':
-//   'D': ,
-//   'D\'': ,
-// }
 
 function rotHorizontal(planeCube, rowIndex) {
   let dupPlaneCube = [...planeCube.map(e => [...e])];
@@ -51,21 +51,31 @@ function rotVerticalTwice(planeCube, colIndex) {
   return rotVertical(temp, colIndex);
 }
 
+function init(line) {
+  // const input = line.split('');
+  console.log(command.U(planeCube));
+}
+
 // ---------------------● test ●---------------------
 
-console.log(rotVerticalTwice(planeCube, 2));
+// console.log(rotVerticalTwice(planeCube, 2));
 
 // ---------------------● node.js 입력 받기 ●---------------------
 
-// const readline = require("readline");
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout
-// });
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  prompt: 'CUBE> '
+});
 
-// rl.on("line", function(line) {
-//   pushWord(line);
-//   rl.close();
-// }).on("close", function() {
-//   process.exit();
-// });
+console.log('초기 상태');
+console.log(planeCube);
+rl.prompt();
+rl.on("line", function(line) {
+  // 이 부분에 실행 함수 입력
+  init(line);
+  rl.close();
+}).on("close", function() {
+  process.exit();
+});
