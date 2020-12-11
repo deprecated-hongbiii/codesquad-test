@@ -6,6 +6,8 @@ const planeCube = [
   ['G', 'B', 'B']
 ];
 
+let dupPlaneCube = planeCube.map(e => [...e]); // 깊은 복사 방법
+
 const command = {
   'U': (e) => rotHorizontal(e, 0),
   'U\'': (e) => rotHorizontalTwice(e, 0),
@@ -73,10 +75,11 @@ function print2Darray(array2D) {
 
 function init(line) {
   let inputArr = splitInput(line);
-  let dupPlaneCube = planeCube.map(e => [...e]); // 복사를 여기서 하자.
+  // let dupPlaneCube = planeCube;
   
   inputArr.forEach((input) => {
     dupPlaneCube = command[input](dupPlaneCube)
+    console.log();
     console.log(input);
     print2Darray(dupPlaneCube);
   })
