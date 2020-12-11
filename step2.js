@@ -27,11 +27,11 @@ function rotL(array) {
   return [...dupArr, firstElem];
 }
 
-function rotHorizontal(dupPlaneCube, rowIndex) {
-  let row = dupPlaneCube[rowIndex];
+function rotHorizontal(planeCube, rowIndex) {
+  let row = planeCube[rowIndex];
   row = rotL(row);
-  dupPlaneCube[rowIndex] = row;
-  return dupPlaneCube;
+  planeCube[rowIndex] = row;
+  return planeCube;
 }
 
 function rotHorizontalTwice(planeCube, rowIndex) {
@@ -39,13 +39,13 @@ function rotHorizontalTwice(planeCube, rowIndex) {
   return rotHorizontal(temp, rowIndex);
 }
 
-function rotVertical(dupPlaneCube, colIndex) {
-  let col = [dupPlaneCube[0][colIndex], dupPlaneCube[1][colIndex], dupPlaneCube[2][colIndex]];
+function rotVertical(planeCube, colIndex) {
+  let col = [planeCube[0][colIndex], planeCube[1][colIndex], planeCube[2][colIndex]];
   col = rotL(col);
-  dupPlaneCube[0][colIndex] = col[0];
-  dupPlaneCube[1][colIndex] = col[1];
-  dupPlaneCube[2][colIndex] = col[2];
-  return dupPlaneCube;
+  planeCube[0][colIndex] = col[0];
+  planeCube[1][colIndex] = col[1];
+  planeCube[2][colIndex] = col[2];
+  return planeCube;
 }
 
 function rotVerticalTwice(planeCube, colIndex) {
@@ -75,7 +75,6 @@ function print2Darray(array2D) {
 
 function init(line) {
   let inputArr = splitInput(line);
-  // let dupPlaneCube = planeCube;
   
   inputArr.forEach((input) => {
     dupPlaneCube = command[input](dupPlaneCube)
@@ -96,7 +95,6 @@ const rl = readline.createInterface({
 
 console.log('초기 상태:');
 print2Darray(planeCube);
-
 rl.prompt();
 rl.on("line", function(line) {
   if(line === 'Q' || line === 'q') {
