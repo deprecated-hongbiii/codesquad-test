@@ -23,8 +23,7 @@ function rotL(array) {
   return [...dupArr, firstElem];
 }
 
-function rotHorizontal(planeCube, rowIndex) {
-  let dupPlaneCube = [...planeCube.map(e => [...e])];
+function rotHorizontal(dupPlaneCube, rowIndex) {
   let row = dupPlaneCube[rowIndex];
   row = rotL(row);
   dupPlaneCube[rowIndex] = row;
@@ -36,8 +35,7 @@ function rotHorizontalTwice(planeCube, rowIndex) {
   return rotHorizontal(temp, rowIndex);
 }
 
-function rotVertical(planeCube, colIndex) {
-  let dupPlaneCube = [...planeCube.map(e => [...e])];
+function rotVertical(dupPlaneCube, colIndex) {
   let col = [dupPlaneCube[0][colIndex], dupPlaneCube[1][colIndex], dupPlaneCube[2][colIndex]];
   col = rotL(col);
   dupPlaneCube[0][colIndex] = col[0];
@@ -52,10 +50,15 @@ function rotVerticalTwice(planeCube, colIndex) {
 }
 
 function init(line) {
-  // const input = line.split('');
-  console.log(command.U(planeCube));
-}
+  let inputArr = line.split('');
+  let dupPlaneCube = [...planeCube.map(e => e)]; // 복사를 여기서 하자.
 
+  inputArr.forEach((input) => {
+    dupPlaneCube = command[input](dupPlaneCube)
+    console.log(dupPlaneCube);
+  })
+}
+// ' <<<<<<<<<< 이놈 처리하는 함수 만들기
 // ---------------------● test ●---------------------
 
 // console.log(rotVerticalTwice(planeCube, 2));
