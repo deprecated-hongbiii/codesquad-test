@@ -3,6 +3,8 @@
 // 1. 해당 명령어 면 시계방향 회전
 // 2. 인접한 4 배열 rotL
 
+const { get } = require('http');
+
 // 반시계 방향의 명령어
 // 1. 해당 명령어 면 시계방향 회전 3번
 // 2. 인접한 4배열 rotL 3번
@@ -34,45 +36,45 @@ let dupCube = {
   'D': cube.D.map(e => [...e])
 }
 
-// const adjoined = {
-//   // 나열 순서: top-left-bottom-right 이놈들 배열을 rotL 할거임
-//   'U': {
-//     top: , // B의 0 row
-//     left: ,// L의 0 row
-//     bottom: , // F의 0 row
-//     right: , // R의 0 row
-//   },
-//   'F': {
-//     top: , // U의 2 row
-//     left: , // L의 2 col
-//     bottom: , // D의 0 row
-//     right: , // R의 0 col
-//   },
-//   'R': {
-//     top: , // U의 2 col
-//     left: , // F의 2 col
-//     bottom: , D의 2 col
-//     right: , // B의 0 col
-//   },
-//   'L': {
-//     top: , // U의 0 col
-//     left: , // B의 2 col
-//     bottom: , // D의 0 col
-//     right: , // F의 0 col
-//   },
-//   'B': {
-//     top: , // U의 0 row
-//     left: , // R의 2 col
-//     bottom: , D의 2 row
-//     right: , L의 0 col
-//   },
-//   'D': {
-//     top: , // F의 2 row
-//     left: , // L의 2 row
-//     bottom: , // B의 2 row
-//     right: , // R의 2 row
-//   }
-// }
+const adjoined = {
+  // 나열 순서: top-left-bottom-right 이놈들 배열을 rotL 할거임
+  'U': {
+    top: getRow(dupCube.B, 0), // B의 0 row
+    left: getRow(dupCube.L, 0),// L의 0 row
+    bottom: getRow(dupCube.F, 0), // F의 0 row
+    right: getRow(dupCube.R, 0), // R의 0 row
+  },
+  'F': {
+    top: getRow(dupCube.U, 2), // U의 2 row
+    left: getCol(dupCube.L, 2), // L의 2 col
+    bottom: getRow(dupCube.D, 0), // D의 0 row
+    right: getCol(dupCube.R, 0), // R의 0 col
+  },
+  'R': {
+    top: getCol(dupCube.U, 2), // U의 2 col
+    left: getCol(dupCube.F, 2), // F의 2 col
+    bottom: getCol(dupCube.D, 2), // D의 2 col
+    right: getCol(dupCube.B, 0), // B의 0 col
+  },
+  'L': {
+    top: getCol(dupCube.U, 0), // U의 0 col
+    left: getCol(dupCube.B, 2), // B의 2 col
+    bottom: getCol(dupCube.D, 0), // D의 0 col
+    right: getCol(dupCube.F, 0), // F의 0 col
+  },
+  'B': {
+    top: getRow(dupCube.U, 0), // U의 0 row
+    left: getCol(dupCube.R, 2), // R의 2 col
+    bottom: getRow(dupCube.D, 2), // D의 2 row
+    right: getCol(dupCube.L, 0), // L의 0 col
+  },
+  'D': {
+    top: getRow(dupCube.F, 2), // F의 2 row
+    left: getRow(dupCube.L, 2), // L의 2 row
+    bottom: getRow(dupCube.B, 2), // B의 2 row
+    right: getRow(dupCube.R, 2), // R의 2 row
+  }
+}
 
 function getRow(array2D, rowIndex) {
   return array2D[rowIndex];
