@@ -15,6 +15,25 @@ const direction = {
   counterClockwise: ['U\'', 'F\'', 'R\'', 'B\'', 'L\'', 'D\'']
 }
 
+const cube = {
+  'U': [['W', 'W', 'W'], ['W', 'W', 'W'], ['W', 'W', 'W']],
+  'F': [['G', 'G', 'G'], ['G', 'G', 'G'], ['G', 'G', 'G']],
+  'R': [['R', 'R', 'R'], ['R', 'R', 'R'], ['R', 'R', 'R']],
+  'L': [['O', 'O', 'O'], ['O', 'O', 'O'], ['O', 'O', 'O']],
+  'B': [['B', 'B', 'B'], ['B', 'B', 'B'], ['B', 'B', 'B']],
+  'D': [['Y', 'Y', 'Y'], ['Y', 'Y', 'Y'], ['Y', 'Y', 'Y']]
+}
+// Array.from({ length: 3 }, () => new Array(3).fill('B'))
+
+let dupCube = {
+  'U': cube.U.map(e => [...e]),
+  'F': cube.F.map(e => [...e]),
+  'R': cube.R.map(e => [...e]),
+  'L': cube.L.map(e => [...e]),
+  'B': cube.B.map(e => [...e]),
+  'D': cube.D.map(e => [...e])
+}
+
 // const adjoined = {
 //   // 나열 순서: top-left-bottom-right 이놈들 배열을 rotL 할거임
 //   'U': {
