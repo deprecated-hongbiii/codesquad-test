@@ -104,13 +104,3 @@ function makeArrayOf4Sides(command) {
 function rot2DarrayClockwise() {
   // 2차원배열을 90도 시계방향 회전 함수
 }
-
-function rotCubeClockwise90degrees() {
-  // 명령어에 해당하는 면 90도 회전 실행
-  // 인접한 4 배열 rotL
-}
-
-function rotCubeCounterClockwise90degrees() {
-  // 면 90도 회전하는 것을 3번 실행
-  // 인접한 4 배열 rotL 을 3번 실행
-}
