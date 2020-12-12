@@ -92,6 +92,15 @@ function rotL(array) {
   return [...dupArr, firstElem];
 }
 
+function makeArrayOf4Sides(command) {
+  let arrayOf4Sides = [];
+  const target = adjoined[command];
+  for(let oneside in target) {
+    arrayOf4Sides.push(target[oneside]);
+  }
+  return arrayOf4Sides;
+}
+
 function rot2DarrayClockwise() {
   // 2차원배열을 90도 시계방향 회전 함수
 }
