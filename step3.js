@@ -55,6 +55,14 @@ const direction = {
 //   }
 // }
 
+function getRow(array2D, rowIndex) {
+  return array2D[rowIndex];
+}
+
+function getCol(array2D, colIndex) {
+  return [array2D[0][colIndex], array2D[1][colIndex], array2D[2][colIndex]];
+}
+
 function isClockwise(command) {
   // upperCase로 바꾸는 작업 필요하면 추가하기.
   return direction.clockwise.includes(command);
