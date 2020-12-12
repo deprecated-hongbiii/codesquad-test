@@ -3,14 +3,11 @@
 // 1. 해당 명령어 면 시계방향 회전
 // 2. 인접한 4 배열 rotL
 
-const { get } = require('http');
-
 // 반시계 방향의 명령어
 // 1. 해당 명령어 면 시계방향 회전 3번
 // 2. 인접한 4배열 rotL 3번
 
-// 쏘 ~~~~~~~~~~~ 심플 !!!!! 할 수 있다 !!!!!!!
-// 배열에 포함되어 있는지 아닌지 판단 : arr.includes('something')
+// 인접 4면 돌리는 방법은 1. 꺼낸다. 2. 돌린다. 3. 다시 넣는다.
 
 const direction = {
   clockwise: ['U', 'F', 'R', 'B', 'L', 'D'],
@@ -95,6 +92,16 @@ function rotL(array) {
   return [...dupArr, firstElem];
 }
 
-function rotClockwise90degrees() {
+function rot2DarrayClockwise() {
+  // 2차원배열을 90도 시계방향 회전 함수
+}
 
+function rotCubeClockwise90degrees() {
+  // 명령어에 해당하는 면 90도 회전 실행
+  // 인접한 4 배열 rotL
+}
+
+function rotCubeCounterClockwise90degrees() {
+  // 면 90도 회전하는 것을 3번 실행
+  // 인접한 4 배열 rotL 을 3번 실행
 }
