@@ -180,8 +180,18 @@ function rot2DarrayClockwise(matrix) {
 console.log('초기상태');
 console.log(dupCube);
 
-console.log(dupCube['U']);
-console.log(rot2DarrayClockwise(dupCube['U']));
-
 // U 명령어
+rotAdjoinedU('U');
+rot2DarrayClockwise(dupCube['U']);
+insertRotatedU('U');
 
+console.log('U 실행');
+console.log(dupCube);
+
+// F 명령어
+rotAdjoinedF('F');
+rot2DarrayClockwise(dupCube['F']);
+insertRotatedU('F');
+
+console.log('F 실행');
+console.log(dupCube);
