@@ -126,10 +126,6 @@ function makeArrayOf4Sides(command) {
   return arrayOf4Sides;
 }
 
-function rot2DarrayClockwise() {
-  // 2차원배열을 90도 시계방향 회전 함수
-}
-
 function rotAdjoinedU(u) { // U의 인접 4면들을 돌려주는 함수
   let arrayOf4Sides = makeArrayOf4Sides(u);
   let result = rotL(arrayOf4Sides);
@@ -148,3 +144,7 @@ function insertRotatedU(u) {
 rotAdjoinedU('U');
 insertRotatedU('U');
 console.log(dupCube);
+
+function rot2DarrayClockwise() {
+  // 2차원배열을 90도 시계방향 회전 함수
+}
