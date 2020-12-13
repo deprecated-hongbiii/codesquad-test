@@ -75,6 +75,15 @@ const adjoined = {
   }
 }
 
+const command = {
+  // 'U': (e) => {  },
+  // 'F': ,
+  // 'R': ,
+  // 'L': ,
+  // 'B': ,
+  // 'D': ,
+}
+
 // --------------------- 행/열을 꺼내거나 집어넣는 함수들 ---------------------
 
 function getRow(array2D, rowIndex) {
