@@ -16,6 +16,8 @@
 
     이후 3단계에서도 2단계에서처럼 왼쪽 회전 함수로 모든 것을 구현할 수 있을 거라는 생각을 하게 됨
 
+<img width="682" alt="step2 메모" src="https://user-images.githubusercontent.com/60209518/102011713-6b99fd80-3d89-11eb-9525-533d9cea08b4.png">
+
 <br/>
 
 ## 코드 동작
