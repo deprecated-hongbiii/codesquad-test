@@ -15,13 +15,21 @@ const direction = {
 }
 
 const cube = {
-  'U': [['W', 'W', 'W'], ['W', 'W', 'W'], ['W', 'W', 'W']],
-  'F': [['G', 'G', 'G'], ['G', 'G', 'G'], ['G', 'G', 'G']],
-  'R': [['R', 'R', 'R'], ['R', 'R', 'R'], ['R', 'R', 'R']],
-  'L': [['O', 'O', 'O'], ['O', 'O', 'O'], ['O', 'O', 'O']],
-  'B': [['B', 'B', 'B'], ['B', 'B', 'B'], ['B', 'B', 'B']],
-  'D': [['Y', 'Y', 'Y'], ['Y', 'Y', 'Y'], ['Y', 'Y', 'Y']]
+  'U': [['⚪️', '⚪️', '⚪️'], ['⚪️', '⚪️', '⚪️'], ['⚪️', '⚪️', '⚪️']],
+  'F': [['🟢', '🟢', '🟢'], ['🟢', '🟢', '🟢'], ['🟢', '🟢', '🟢']],
+  'R': [['🔴', '🔴', '🔴'], ['🔴', '🔴', '🔴'], ['🔴', '🔴', '🔴']],
+  'L': [['🟠', '🟠', '🟠'], ['🟠', '🟠', '🟠'], ['🟠', '🟠', '🟠']],
+  'B': [['🔵', '🔵', '🔵'], ['🔵', '🔵', '🔵'], ['🔵', '🔵', '🔵']],
+  'D': [['🟡', '🟡', '🟡'], ['🟡', '🟡', '🟡'], ['🟡', '🟡', '🟡']]
 }
+// const cube = {
+//   'U': [['W', 'W', 'W'], ['W', 'W', 'W'], ['W', 'W', 'W']],
+//   'F': [['G', 'G', 'G'], ['G', 'G', 'G'], ['G', 'G', 'G']],
+//   'R': [['R', 'R', 'R'], ['R', 'R', 'R'], ['R', 'R', 'R']],
+//   'L': [['O', 'O', 'O'], ['O', 'O', 'O'], ['O', 'O', 'O']],
+//   'B': [['B', 'B', 'B'], ['B', 'B', 'B'], ['B', 'B', 'B']],
+//   'D': [['Y', 'Y', 'Y'], ['Y', 'Y', 'Y'], ['Y', 'Y', 'Y']]
+// }
 // Array.from({ length: 3 }, () => new Array(3).fill('B'))
 
 let dupCube = {
@@ -139,10 +147,30 @@ function insertRotatedU(u) {
   setRow(dupCube['F'], adjoined[u].bottom, 0);
   setRow(dupCube['R'], adjoined[u].right, 0);
 }
-
+console.log('초기상태');
+console.log(dupCube);
 // U 명령어 - 인접 4면 회전 실행
 rotAdjoinedU('U');
 insertRotatedU('U');
+console.log(dupCube);
+
+function rotAdjoinedF(f) {
+  let arrayOf4Sides = makeArrayOf4Sides(f);
+  [ arrayOf4Sides[0], arrayOf4Sides[3] ] = [ arrayOf4Sides[0].reverse(), arrayOf4Sides[3].reverse() ];
+  let result = rotL(arrayOf4Sides);
+  [ adjoined[f].top, adjoined[f].left, adjoined[f].bottom, adjoined[f].right ] 
+  = [ result[0].reverse(), result[1], result[2], result[3].reverse() ];
+  return result;
+}
+function insertRotatedF(f) {
+  setRow(dupCube['U'], adjoined[f].top, 2);
+  setCol(dupCube['L'], adjoined[f].left, 2);
+  setRow(dupCube['D'], adjoined[f].bottom, 0);
+  setCol(dupCube['R'], adjoined[f].right, 0);
+}
+
+rotAdjoinedF('F');
+insertRotatedU('F');
 console.log(dupCube);
 
 function rot2DarrayClockwise() {
