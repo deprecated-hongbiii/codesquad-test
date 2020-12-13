@@ -147,19 +147,15 @@ function insertRotatedU(u) {
   setRow(dupCube['F'], adjoined[u].bottom, 0);
   setRow(dupCube['R'], adjoined[u].right, 0);
 }
-console.log('초기상태');
-console.log(dupCube);
-// U 명령어 - 인접 4면 회전 실행
-rotAdjoinedU('U');
-insertRotatedU('U');
-console.log(dupCube);
 
 function rotAdjoinedF(f) {
   let arrayOf4Sides = makeArrayOf4Sides(f);
   [ arrayOf4Sides[0], arrayOf4Sides[3] ] = [ arrayOf4Sides[0].reverse(), arrayOf4Sides[3].reverse() ];
   let result = rotL(arrayOf4Sides);
+  result[0] = result[0].reverse();
+  result[3] = result[3].reverse();
   [ adjoined[f].top, adjoined[f].left, adjoined[f].bottom, adjoined[f].right ] 
-  = [ result[0].reverse(), result[1], result[2], result[3].reverse() ];
+  = [ result[0], result[1], result[2], result[3] ];
   return result;
 }
 function insertRotatedF(f) {
@@ -169,10 +165,23 @@ function insertRotatedF(f) {
   setCol(dupCube['R'], adjoined[f].right, 0);
 }
 
-rotAdjoinedF('F');
-insertRotatedU('F');
+function rot2DarrayClockwise(matrix) {
+  const rotate = Array.from({ length: 3 }, () => new Array(3));
+    for (let i = 0; i < rotate.length; i++) {
+      for (let j = 0; j < rotate[i].length; j++) {
+        rotate[i][j] = matrix[2 - j][i];
+      }
+    }
+    return rotate;
+};
+
+//--------------------- 실행 테스트 ---------------------
+
+console.log('초기상태');
 console.log(dupCube);
 
-function rot2DarrayClockwise() {
-  // 2차원배열을 90도 시계방향 회전 함수
-}
+console.log(dupCube['U']);
+console.log(rot2DarrayClockwise(dupCube['U']));
+
+// U 명령어
+
