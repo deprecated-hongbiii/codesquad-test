@@ -135,4 +135,16 @@ function rotAdjoinedU(u) { // U의 인접 4면들을 돌려주는 함수
   let result = rotL(arrayOf4Sides);
   [ adjoined[u].top, adjoined[u].left, adjoined[u].bottom, adjoined[u].right ] 
   = [ result[0], result[1], result[2], result[3] ];
+  return result;
 }
+function insertRotatedU(u) {
+  setRow(dupCube['B'], adjoined[u].top, 0);
+  setRow(dupCube['L'], adjoined[u].left, 0);
+  setRow(dupCube['F'], adjoined[u].bottom, 0);
+  setRow(dupCube['R'], adjoined[u].right, 0);
+}
+
+// U 명령어 - 인접 4면 회전 실행
+rotAdjoinedU('U');
+insertRotatedU('U');
+console.log(dupCube);
