@@ -34,3 +34,6 @@
 
 ## 실행 화면
 
+<img width="554" alt="step1 실행화면" src="https://user-images.githubusercontent.com/60209518/102008667-98dcb080-3d75-11eb-8356-fbe880b3c6e5.png">
+
+<br/>
