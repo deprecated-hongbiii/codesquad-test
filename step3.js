@@ -33,8 +33,10 @@ let dupCube = {
   'D': cube.D.map(e => [...e])
 }
 
+// 각 면에 인접한 4면의 행/열을 저장해둔 객체
+// 방향은 해당 면을 기준으로 함
+
 const adjoined = {
-  // 나열 순서: top-left-bottom-right 이놈들 배열을 rotL 할거임
   'U': {
     top: getRow(dupCube.B, 0), // B의 0 row
     left: getRow(dupCube.L, 0),// L의 0 row
@@ -73,6 +75,8 @@ const adjoined = {
   }
 }
 
+// --------------------- 행/열을 꺼내거나 집어넣는 함수들 ---------------------
+
 function getRow(array2D, rowIndex) {
   return array2D[rowIndex];
 }
@@ -80,6 +84,18 @@ function getRow(array2D, rowIndex) {
 function getCol(array2D, colIndex) {
   return [array2D[0][colIndex], array2D[1][colIndex], array2D[2][colIndex]];
 }
+
+function setRow(array2D, newRow, rowIndex) {
+  array2D[rowIndex] = newRow;
+}
+
+function setCol(array2D, newCol, colIndex) {
+  array2D[0][colIndex] = newCol[0];
+  array2D[1][colIndex] = newCol[1];
+  array2D[2][colIndex] = newCol[2];
+}
+
+//---------------------------------------------------------------------
 
 function isClockwise(command) {
   // upperCase로 바꾸는 작업 필요하면 추가하기.
@@ -103,4 +119,11 @@ function makeArrayOf4Sides(command) {
 
 function rot2DarrayClockwise() {
   // 2차원배열을 90도 시계방향 회전 함수
+}
+
+function rotAdjoinedU(u) { // U의 인접 4면들을 돌려주는 함수
+  let arrayOf4Sides = makeArrayOf4Sides(u);
+  let result = rotL(arrayOf4Sides);
+  [ adjoined[u].top, adjoined[u].left, adjoined[u].bottom, adjoined[u].right ] 
+  = [ result[0], result[1], result[2], result[3] ];
 }
